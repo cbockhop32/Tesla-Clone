@@ -1,0 +1,891 @@
+@font-face {
+    src: url(fonts/TESLA.ttf);
+    font-family: tesla;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    
+    height: auto;
+}
+
+header {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    min-height: 54px;
+
+    position: fixed;
+    z-index: 4;
+
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+ 
+    
+}
+
+
+
+
+.header-wrapper {
+    width: 98%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+
+/* Left Logo */
+/************ */
+
+
+.left-nav {
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+
+.left-nav a {
+    font-family: tesla;
+    letter-spacing: 6px;
+    font-weight: normal;
+    transition: all 0.4s;
+    font-size:16px;
+}
+
+.left-nav a:hover {
+    color: #e0e0e0;
+}
+
+
+/* center nav */
+/************ */
+
+.center-nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.center-nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.center-nav ul li {
+    padding: 0 12px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.center-nav ul li a:hover {
+    color: #e0e0e0;
+    transition: all 0.4s;
+}
+
+
+/* right nav */
+/************ */
+
+
+.right-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+
+
+}  
+
+
+.right-menu-1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    list-style-type: none;
+    padding-right: 30px;
+}
+
+.right-menu-1 li {
+    padding: 0 10px;
+}
+
+.right-menu-1 li a:hover {
+    color: #e0e0e0;
+    transition: all 0.4s;
+}
+
+
+/* Creates Nav Icon with Span element */
+
+.right-nav .nav-icon-wrapper {
+   
+    position: relative;
+    overflow: hidden;
+   
+}
+
+
+.right-nav .menu-icon {
+    cursor: pointer;
+    display: block;
+    padding: 12px 0;
+}
+
+
+
+.right-nav .nav-icon {
+    display: block;
+    width: 15px;
+    height: 2px;
+    background: white;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+.right-nav .nav-icon:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: absolute;
+    top: -5px;
+    transition: 0.4s all;
+    cursor: pointer;
+
+}
+
+
+.right-nav .nav-icon:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: absolute;
+    top: 5px;
+    transition: 0.4s all;
+    cursor: pointer;
+
+}
+
+
+
+.menu-btn {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+}
+
+.menu-btn:checked ~ .menu-icon .nav-icon {
+    background: none;
+}
+
+
+.menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+
+/* Triggers dropdown menu to display none */
+
+.right-nav .menu {
+    max-height: 0;
+    width: 312px;
+    position: absolute;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; 
+    transition: 0.5s max-height ease;
+    right: 0;
+    top: 54px;
+
+    background: white;
+}
+
+
+.right-nav .menu li {
+    padding: 20px 10px;
+    margin: 0 12px;
+}
+
+.right-nav .menu li:not(:last-child) {
+    border-bottom: #e0e0e0 1px solid;
+}
+
+
+
+.right-nav .menu a {
+    color: black;
+    font-weight: 600;
+    font-size: 14px;;
+}
+
+
+.menu-btn:checked ~ .menu {
+    max-height: 900px; 
+}
+
+
+/* Slider Formatting */
+/* ****************** */
+
+
+.slider-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    
+}
+
+/* Slides */
+
+.slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+ 
+}
+
+.slide {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 15%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+ 
+}
+
+
+
+.slide img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center -25px;
+}
+
+
+/* Slides Boxes Formatting */
+
+.box-1, .box-2, .box-3 {
+    padding: 0 50px;
+    text-align: center;
+    
+}
+
+.box-1, .box-2 {
+    border-right: 1px solid white;
+}
+
+.box-1 i, h2 {
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0;
+
+}
+
+
+
+.slide-text h2 {
+    font-size: 28px;
+
+}
+
+.slide-text p {
+    font-size: 12px;
+}
+
+
+
+/* Slider Function */
+
+#r1:checked ~ .s1 {
+    margin-left: 0;
+    transition: 0.6s;
+}
+
+#r2:checked ~ .s1 {
+    margin-left: -25%;
+    transition: 0.6s;
+}
+
+#r3:checked ~ .s1 {
+    margin-left: -50%;
+    transition: 0.6s;
+}
+
+#r4:checked ~ .s1 {
+    margin-left: -75%;
+    transition: 0.6s;
+}
+
+
+/* Nav Bar */
+
+input[name="r"] {
+    display: none;
+    position: absolute;
+}
+
+.slide-nav-bar {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform:translateX(-50%);
+
+}
+
+.bar {
+    width: 15rem;
+    height: 40px;
+    color: white;
+    margin: 2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.bar:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.6s;
+    color: black;
+}
+
+
+/* Individual Slide Formating */
+.slide img {
+    width: 100%;
+}
+
+
+
+/* Mid Boxes */
+
+.mid {
+    background: #e0e0e0;
+}
+
+.mid-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    
+
+}
+
+
+.mid-box {
+   
+    flex: 0 1 32%;
+    text-align: center;
+    margin: 0.6rem;
+    
+
+}
+
+
+.mid-box img {
+    padding: 1rem 0;
+    width: 90%;
+    height: 300px;
+    object-fit: cover;
+    
+}
+
+.mid-box .box-text {
+    padding: 1rem 1rem;
+   
+}
+
+.mid-box .box-text h2,
+.mid-box .box-text p {
+    margin: 0;
+    color: black;
+
+}
+
+.mid-box .box-text p {
+    font-size: 0.85rem;
+}
+
+
+
+
+/* Model S Page Styling */
+
+.model-height {
+    height: 110vh;
+}
+
+.models-2 {
+    background: url(img/models-2.jpg)no-repeat center center/cover;
+    
+}
+
+.models-3 {
+    background: url(img/models-3.jpg)no-repeat center center/cover;
+    
+}
+
+.models-1 {
+    background: url(models.jpg) no-repeat center center/cover;
+}
+
+.models-1-text,
+.models-2-text,
+.models-3-text {
+    position: relative;
+    top: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+
+    
+    margin: 0 auto;
+    
+
+}
+
+
+
+
+.models-3-text {
+    color: white;
+}
+
+
+
+
+
+
+
+.black-box-border {
+    border-right: 1px solid black;
+}
+
+
+.hero-btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: black;
+    border: 2px black solid;
+    padding: 0.5rem 2rem;
+    margin-left: 2rem;
+    border-radius: 1rem;
+    transition: all 0.4s ease-out;
+
+}
+
+
+
+
+
+.hero-btn:hover {
+    color: white;
+    background-color: black;
+}
+
+
+
+/* Model 3 Styling */
+
+.white {
+    color: white;
+}
+
+
+
+.hero-white {
+    color: white;
+    border: 2px white solid;
+}
+
+.hero-white:hover {
+    color: black;
+    background-color: white;
+
+}
+
+
+.model3-1-text {
+    color: white;
+}
+
+
+.model3-1 {
+    background: url(img/model3-1.jpg)no-repeat center center/cover;
+}
+
+.model3-2 {
+    background: url(img/model3-2.jpg)no-repeat center center/cover;
+}
+
+.model3-3 {
+    background: url(img/model3-3.jpg)no-repeat center center/cover;
+}
+
+
+/* Model X Styling */
+
+
+.modelx-1 {
+    background: url(img/modelx-2.jpg)no-repeat center center/cover;
+}
+
+.modelx-2 {
+    background: url(img/modelx-1-v2.jpg)no-repeat center center/cover;
+}
+
+.modelx-3 {
+    background: url(img/modelx-3.png)no-repeat center center/cover;
+}
+
+/* Model Y Styling */
+
+.modely-1 {
+    background: url(img/modely-1.jpg)no-repeat center center/cover;
+}
+
+
+.modely-2 {
+    background: url(img/modely-2.jpg)no-repeat center center/cover;
+}
+
+.modely-3 {
+    background: url(img/modely-3.webp)no-repeat center center/cover;
+
+}
+
+
+/* Cybertruck Styling */
+
+.cybertruck-1 {
+    background: url(img/cybertruck-1.jpg)no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 90vh;
+}
+
+.cybertruck-2 {
+    background: url(img/cybertruck-2.jpg)no-repeat center center/cover;
+}
+
+.cybertruck-3 {
+    background: url(img/cybertruck-3.jpg)no-repeat center center/cover;
+}
+
+.cyber-pos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+.cybertruck-text-1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+   
+}
+
+.cybertruck-text-1 h2 {
+    text-transform: uppercase;
+}
+
+.cybertruck-text-2 {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    padding-bottom: 3rem;
+}
+
+
+
+/* Roadster Styling */
+
+.roadster-1 {
+    background: url(img/roadster-1.jpg)no-repeat center center/cover;
+}
+
+.roadster-2 {
+    background: url(img/roadster-2.jpg)no-repeat center center/cover;
+}
+
+.roadster-3 {
+    background: url(img/roadster-3.jpg)no-repeat center center/cover;
+}
+
+
+
+
+
+
+/* Media Queries */
+
+
+@media (min-width: 750px) and (max-width: 1600px) {
+
+    header a {
+        font-size: 12px;
+     
+        
+    }
+
+
+
+    .center-nav ul li {
+        padding: 0 10px;
+        text-align: center;
+       
+    }
+
+    .slider-wrapper {
+        height: 75vh;  
+    }
+
+
+    .bar {
+        width: 8rem;
+        height: 40px;
+        margin: 1.5rem;
+        font-size: 20px;
+    }
+
+    .slide-text h2
+     {
+        font-size: 20px;
+    }
+
+    .slide-text p {
+        font-size: 12px;
+    }
+
+    .right-nav .menu {
+        width: 200px;
+        top: 76px;
+    }
+
+
+    .mid-wrapper {
+        justify-content: space-around;
+        
+        width: 100%;
+    }
+
+    .mid-box {
+        flex: 0 1 45%;   
+    }
+
+   
+
+    .mid-box img {
+        width: 100%;
+       
+    }
+
+    .model-height {
+        height: 65vh;
+    }
+
+    .slide-text h2,
+    .models-1-text h2,
+    .models-2-text h2,
+    .models-3-text h2 {
+        font-size: 20px;
+    }
+
+    .slide-text p,
+    .models-1-text p,
+    .models-2-text p,
+    .models-3-text p {
+        font-size: 14px;
+    }
+
+    .models-1-text,
+    .models-2-text,
+    .models-3-text {
+        width: 90%;
+
+    }
+
+    .hero-btn {
+        text-align: center;
+       
+        font-size: 0.5rem;
+        
+       
+        padding: 0.8rem 1.2rem;
+        margin-left: 1rem;
+        border-radius: 0.5rem;
+    
+    
+    }
+    
+}
+
+
+@media (max-width: 750px) {
+    
+    header {
+        position: relative;
+        background: rgba(0, 0, 0, 1)
+    }
+
+    .header-wrapper {
+        flex-direction: column;
+        
+    }
+
+    .center-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0.5rem 0;
+    }
+
+    .center-nav ul li {
+        padding: 0.4rem 0;
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+
+    .right-nav {
+        display: none;
+    }
+
+
+    .slider-wrapper {
+        height: 35vh;  
+    }
+
+
+    .box-1, .box-2, .box-3 {
+        padding: 0 10px;
+    }
+
+    .slide-text h2,
+    .models-1-text h2,
+    .models-2-text h2,
+    .models-3-text h2 {
+        font-size: 10px;
+    }
+
+    .slide-text p,
+    .models-1-text p,
+    .models-2-text p,
+    .models-3-text p {
+        font-size: 10px;
+    }
+
+    .slide img {
+        object-position: top;
+    }
+
+    .bar {
+        width: 4rem;
+        height: 20px;
+        margin: 0.5rem;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+
+    .mid-wrapper {
+        flex-direction: column;
+        flex-wrap: none;
+        
+    }
+
+
+    .model-height {
+        height: 40vh;
+    }
+
+    .models-1 i,
+    .models-2 i,
+    .models-3 i {
+        display: none;
+    }
+
+
+    .hero-btn {
+       
+        font-size: 0.4rem;
+        
+       
+        padding: 0.2rem 0.8rem;
+        margin-left: 1rem;
+        border-radius: 0.5rem;
+    
+    
+    }
+
+
+    
+    .models-1-text,
+    .models-2-text,
+    .models-3-text {
+        
+        top: 65%;
+       
+        width: 70%;
+        
+        margin: 0 auto;
+        
+
+    }
+
+    
+
+}
+
